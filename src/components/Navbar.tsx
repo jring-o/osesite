@@ -12,7 +12,7 @@ export const Navbar = () => {
       <div className="max-w-[1200px] mx-auto px-4 flex h-16 items-center justify-between">
         <div className="flex items-center">
           <img 
-            src="/images/ose-logo.png" 
+            src="/ose-images/ose-logo.png" 
             alt="Open Source Endowment Logo" 
             className="h-8 w-auto" 
           />
