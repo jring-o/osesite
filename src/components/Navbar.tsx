@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@/components/ui/navigation-menu";
 import { Github } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import oseLogoSrc from '/images/ose-logo.png';
 
 export const Navbar = () => {
   return (
@@ -12,7 +12,7 @@ export const Navbar = () => {
       <div className="max-w-[1200px] mx-auto px-4 flex h-16 items-center justify-between">
         <div className="flex items-center">
           <img 
-            src="/images/ose-logo.png" 
+            src={oseLogoSrc} 
             alt="Open Source Endowment Logo" 
             className="h-8 w-auto" 
           />

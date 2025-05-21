@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import oseLogoSrc from '/images/ose-logo.png';
 
 const Footer = () => {
   return <footer className="bg-black text-white pt-12 pb-8">
@@ -7,8 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <img src="/images/ose-logo.png" alt="Open Source Endowment Logo" className="h-8 w-auto" />
-              
+              <img src={oseLogoSrc} alt="Open Source Endowment Logo" className="h-8 w-auto" />
             </div>
             <p className="text-sm text-white/80">
               Sustainable funding for the open source ecosystem through community-driven endowment.
