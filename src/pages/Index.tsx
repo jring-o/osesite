@@ -15,7 +15,7 @@ import MissionStatementSection from "@/components/MissionStatementSection";
 
 const Index = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-background overflow-x-hidden">
       <Navbar />
       
       <main className="flex-grow">
@@ -34,13 +34,12 @@ const Index = () => {
 
         <MissionStatementSection />
 
-        <SectionContainer id="how-it-works" withBackground={true} noPaddingTop={true} noPaddingBottom={true}>
+        <SectionContainer id="how-it-works" withBackground={true} noPaddingTop={true} noPaddingBottom={false}>
           <EndowmentModel />
         </SectionContainer>
         
-        <SectionContainer id="features" noPaddingTop={true} noPaddingBottom={true}>
-          <Features />
-        </SectionContainer>
+        {/* Features component now manages its own full-bleed background and section-container for content padding */}
+        <Features /> 
         
         <SectionContainer 
           id="community-governance" 

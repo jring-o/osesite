@@ -1,4 +1,5 @@
 import React from "react";
+
 const Features = () => {
   const featuresList = [{
     title: "Digital-First",
@@ -28,34 +29,47 @@ const Features = () => {
     title: "Member Led",
     description: "Ensure key decisions are driven by those with a direct stake in the endowment's success"
   }];
-  return <div className="section-container relative">
-      <div className="absolute inset-0 -mx-[50vw] bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-green/5" />
-      
-      <div className="relative max-w-[1200px] mx-auto">
+
+  return (
+    <div id="features" className="relative bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-green/5">
+      {/* Uses .section-container class from index.css for max-width, padding etc. */}
+      <div className="section-container"> 
         <h2 className="section-title">
           <span className="gradient-text">Next-gen nonprofit</span> for the tech industry
         </h2>
         <p className="section-description">OSE is pioneering sustainable open source funding with the agility of a modern tech start-up.</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 px-4">
-          {featuresList.map((feature, index) => <div key={index} className={`
-                space-y-2 p-6
-                ${index < featuresList.length - 3 ? 'border-b border-brand-blue/10 dark:border-brand-green/10' : ''}
-                ${(index + 1) % 3 !== 0 && index < featuresList.length - 1 ? 'border-r border-brand-blue/10 dark:border-brand-green/10' : ''}
-                ${index < 6 && index >= 3 ? 'md:border-b md:border-brand-blue/10 md:dark:border-brand-green/10' : ''}
-                ${index < 3 ? 'md:border-b md:border-brand-blue/10 md:dark:border-brand-green/10' : ''}
-                ${(index + 1) % 2 !== 0 && index < featuresList.length - 1 ? 'md:border-r md:border-brand-blue/10 md:dark:border-brand-green/10' : ''}
-                ${index < 2 ? 'md:col-span-1' : ''}
-              `}>
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-                {feature.title}
-              </h3>
-              <p className="text-zinc-600 dark:text-zinc-400">
-                {feature.description}
-              </p>
-            </div>)}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+          {featuresList.map((feature, index) => {
+            // For a 3-column grid (md:grid-cols-3):
+            // Item 'i' is in row 'r = Math.floor(i/3)' and col 'c = i % 3'.
+            // Total rows 'R = Math.ceil(featuresList.length / 3)'.
+            const isLastRowMd = Math.floor(index / 3) === Math.ceil(featuresList.length / 3) - 1;
+            const isLastColMd = (index % 3) === 2;
+            const isLastItemMobile = index === featuresList.length - 1;
+
+            return (
+              <div
+                key={index}
+                className={`
+                  space-y-2 p-6
+                  ${!isLastRowMd ? 'md:border-b md:border-brand-blue/10 md:dark:border-brand-green/10' : ''}
+                  ${!isLastColMd ? 'md:border-r md:border-brand-blue/10 md:dark:border-brand-green/10' : ''}
+                  ${!isLastItemMobile ? 'border-b md:border-b-0 border-brand-blue/10 dark:border-brand-green/10' : ''}
+                `}
+              >
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                  {feature.title}
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400">
+                  {feature.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 export default Features;

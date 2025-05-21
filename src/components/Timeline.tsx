@@ -1,4 +1,3 @@
-
 import React from "react";
 import { cn } from "@/lib/utils";
 import { CalendarDays, Circle } from "lucide-react";
@@ -12,7 +11,7 @@ interface MilestoneColumnProps {
 
 const MilestoneColumn = ({ quarter, description, details, isLast = false }: MilestoneColumnProps) => {
   return (
-    <div className="flex flex-col items-center bg-white/5 p-6 rounded-xl border border-zinc-100 shadow-sm hover:shadow-md transition-all h-full">
+    <div className="flex flex-col items-center bg-card/5 dark:bg-card/30 p-6 rounded-xl border border-muted/30 shadow-sm hover:shadow-md transition-all h-full">
       <div className="flex items-center justify-center mb-4">
         <div className="h-12 w-12 rounded-full bg-brand-blue flex items-center justify-center text-white">
           <CalendarDays size={22} />
@@ -90,7 +89,7 @@ const Timeline = ({ className }: TimelineProps) => {
   ];
 
   return (
-    <div className={cn("py-16 px-4 relative", className)}>
+    <div className={cn("py-16 px-4 relative", className)}> {/* This py-16 is why parent SectionContainer needs paddingBottom */}
       <h3 className="text-center mb-12 text-2xl font-bold">Roadmap</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 gap-y-10 max-w-6xl mx-auto relative">
         {milestones.map((milestone, i) => (
