@@ -20,7 +20,7 @@ const EndowmentModel = () => {
             fontSize: 18,
             color: "#000"
           }}>Donations</div>
-            <div className="text-left text-[14px] text-muted-foreground leading-relaxed font-normal">Individuals, companies, and foundations build the endowment's permanent principal by contributing diverse assets like cash or stocks. This creates a lasting capital base dedicated to supporting open source. (Note: US 501(c)(3) status is pending; ETA Q4 2025 for potential retroactive tax-deductibility for US donations.)"</div>
+            <div className="text-left text-[14px] text-muted-foreground leading-relaxed font-normal">Individuals, companies, and foundations build the endowment's permanent principal by contributing diverse assets like cash or stocks. This creates a lasting capital base dedicated to supporting open source. (Note: US 501(c)(3) status is pending; ETA Q4 2025 for potential retroactive tax-deductibility for US donations.)</div>
           </div>
         </div>
         <div className="flex flex-col items-start bg-white rounded-2xl shadow-lg border border-zinc-100 p-0 overflow-hidden hover-lift transition-all h-full">
