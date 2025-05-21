@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ProblemStats from "./ProblemStats";
+import xkcdImageSrc from '/images/xkcd.png';
 
 const ProblemSection: React.FC = () => {
   const fadeIn = {
@@ -32,7 +33,7 @@ const ProblemSection: React.FC = () => {
           This under-resourced model leads to volunteer burnout and an increased risk of bugs and vulnerabilities. Such flaws can result in severe incidents like <a href="https://en.wikipedia.org/wiki/Log4Shell" target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline">Log4Shell</a> and <a href="https://en.wikipedia.org/wiki/Heartbleed" target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline">Heartbleed</a>, costing the global economy billions in damages and remediation.
         </p>
         <div className="flex-1">
-          <img src="/ose-images/xkcd.png" alt="Comic showing modern digital infrastructure maintained by one person" className="w-full h-auto object-contain" />
+          <img src={xkcdImageSrc} alt="Comic showing modern digital infrastructure maintained by one person" className="w-full h-auto object-contain" />
         </div>
       </div>
 
