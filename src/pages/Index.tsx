@@ -5,7 +5,7 @@ import ProblemSolution from "@/components/ProblemSolution";
 import EndowmentModel from "@/components/EndowmentModel";
 import Features from "@/components/Features";
 import CommunityGovernance from "@/components/CommunityGovernance";
-import ModelDevelopment from "@/components/ModelDevelopment";
+// import ModelDevelopment from "@/components/ModelDevelopment"; // Removed
 // import GuidingPrinciplesDocs from "@/components/GuidingPrinciplesDocs";
 import OperationsTeam from "@/components/OperationsTeam";
 import DonationForm from "@/components/DonationForm";
@@ -15,7 +15,7 @@ import MissionStatementSection from "@/components/MissionStatementSection";
 
 const Index = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-background overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
       
       <main className="flex-grow">
@@ -27,19 +27,20 @@ const Index = () => {
           id="problem-solution" 
           noPaddingTop={true}
           withBackground={true}
-          withVerticalSeparator={true}
+          // withVerticalSeparator={true} // Removed for single column layout
         >
           <ProblemSolution />
         </SectionContainer>
 
         <MissionStatementSection />
 
-        <SectionContainer id="how-it-works" withBackground={true} noPaddingTop={true} noPaddingBottom={false}>
+        <SectionContainer id="how-it-works" withBackground={true} noPaddingTop={true} noPaddingBottom={true}>
           <EndowmentModel />
         </SectionContainer>
         
-        {/* Features component now manages its own full-bleed background and section-container for content padding */}
-        <Features /> 
+        <SectionContainer id="features" noPaddingTop={true} noPaddingBottom={true}>
+          <Features />
+        </SectionContainer>
         
         <SectionContainer 
           id="community-governance" 
@@ -48,12 +49,12 @@ const Index = () => {
           <CommunityGovernance />
         </SectionContainer>
                 
-        <SectionContainer 
-        id="funding-model"
+        {/* <SectionContainer 
+        id="funding-model" // This section was for ModelDevelopment
         withBackground={true}
       >
-          <ModelDevelopment />
-        </SectionContainer>
+          <ModelDevelopment /> // Removed
+        </SectionContainer> */}
 
         {/* <SectionContainer 
           id="guiding-principles" 

@@ -1,9 +1,9 @@
-/* #root { */
-  /* max-width: 1280px; */ /* Managed by Tailwind containers */
-  /* margin: 0 auto; */ /* Managed by Tailwind containers */
-  /* padding: 2rem; */ /* Managed by Tailwind SectionContainer/section-container classes */
-  /* text-align: center; */ /* Apply text-align where needed */
-/* } */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* padding: 2rem; Removed global padding */
+  text-align: center;
+}
 
 .logo {
   height: 6em;

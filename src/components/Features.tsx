@@ -1,75 +1,71 @@
 import React from "react";
-
 const Features = () => {
-  const featuresList = [{
-    title: "Digital-First",
-    description: "Leverage a digital-first, automated approach, minimizing overhead and maximizing efficiency, transparency, and global reach."
-  }, {
-    title: "Ecosystem Outlook",
-    description: "Support the developers, maintainers, contributors, collaborative networks, educational pathways, and cultural elements that ensure open source's long-term health and innovation."
-  }, {
-    title: "Radical Transparency",
-    description: "Commit to radical transparency with open data, public governance processes, and clear accountability in every funding decision."
-  }, {
-    title: "People-First",
-    description: "Empower passionate and committed individuals to shape our direction and impact."
-  }, {
-    title: "Data Driven",
-    description: "Utilize data and analytics to inform funding allocations, measure impact, and guide strategic decisions towards achieving clear, long-term ecosystem objectives."
-  }, {
-    title: "Decentralized",
-    description: "Build a broad and diversified funding base, making every contribution meaningful and fostering collective ownership of the endowment's success."
-  }, {
-    title: "Neutrality",
-    description: "Remain independent from political or corporate influence, ensuring unbiased, mission-driven funding."
-  }, {
-    title: "Innovation-Driven",
-    description: "Foster innovation in open source funding models and community engagement methodology."
-  }, {
-    title: "Member Led",
-    description: "Ensure key decisions are driven by those with a direct stake in the endowment's success"
-  }];
-
-  return (
-    <div id="features" className="relative bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-green/5">
-      {/* Uses .section-container class from index.css for max-width, padding etc. */}
-      <div className="section-container"> 
+  const featuresList = [
+    {
+      title: "Digital-First",
+      description: "Operates like a tech startup with minimal overhead and automated, data-driven processes for efficiency and transparency."
+    },
+    {
+      title: "Global Outlook",
+      description: "Supports the worldwide open source community, focusing on developers, maintainers, networks, and cultural elements for long-term health."
+    },
+    {
+      title: "Radical Transparency",
+      description: "Commits to open data, public governance processes, and clear accountability in all funding decisions and operations."
+    },
+    {
+      title: "People-Centric & Bottom-Up",
+      description: "Empowers individuals and the community to shape our direction, with inclusive governance and low thresholds for participation."
+    },
+    {
+      title: "Data-Driven & SMART Goals",
+      description: "Utilizes analytics to inform funding, measure impact, and guide strategy, ensuring even small donations make a measurable difference."
+    },
+    {
+      title: "Decentralized & Diversified",
+      description: "Builds a broad funding base from diverse sources, making every contribution meaningful and fostering collective ownership."
+    },
+    {
+      title: "Neutrality",
+      description: "Remains independent from political or corporate influence, ensuring unbiased, mission-driven funding for the public good."
+    },
+    {
+      title: "Innovation & Viral Growth",
+      description: "Fosters innovation in funding models and community engagement, encouraging donors and projects to spread the word and boost organic growth."
+    },
+    {
+      title: "Member-Led Governance",
+      description: "Ensures key strategic decisions, particularly around grant-making, are advised and driven by members with a direct stake in OSE's success."
+    }
+  ];
+  return <div className="section-container relative">
+      <div className="absolute inset-0 -mx-[50vw] bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-green/5" />
+      
+      <div className="relative max-w-[1200px] mx-auto">
         <h2 className="section-title">
           <span className="gradient-text">Next-gen nonprofit</span> for the tech industry
         </h2>
-        <p className="section-description">OSE is pioneering sustainable open source funding with the agility of a modern tech start-up.</p>
+        <p className="section-description">OSE is pioneering sustainable open source funding with the agility of a modern tech start-up, guided by core principles for maximum impact and community trust.</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-          {featuresList.map((feature, index) => {
-            // For a 3-column grid (md:grid-cols-3):
-            // Item 'i' is in row 'r = Math.floor(i/3)' and col 'c = i % 3'.
-            // Total rows 'R = Math.ceil(featuresList.length / 3)'.
-            const isLastRowMd = Math.floor(index / 3) === Math.ceil(featuresList.length / 3) - 1;
-            const isLastColMd = (index % 3) === 2;
-            const isLastItemMobile = index === featuresList.length - 1;
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 px-4">
+          {featuresList.map((feature, index) => <div key={index} className={`
+                space-y-2 p-6
+                ${index < featuresList.length - (featuresList.length % 3 === 0 ? 3 : featuresList.length % 3) ? 'border-b border-brand-blue/10 dark:border-brand-green/10' : ''}
+                ${(index + 1) % 3 !== 0 && index < featuresList.length -1 ? 'md:border-r md:border-brand-blue/10 md:dark:border-brand-green/10' : ''}
+                ${index < featuresList.length -1 && (index + 1) % 3 === 0 ? '' : 'border-b md:border-b-0 border-brand-blue/10 dark:border-brand-green/10'}
+                 ${/* Apply bottom border for all items on mobile except the last row equivalent */''}
+                ${ index >= featuresList.length - (featuresList.length % 3 || 3) ? '' : 'md:border-b md:border-brand-blue/10 md:dark:border-brand-green/10' }
 
-            return (
-              <div
-                key={index}
-                className={`
-                  space-y-2 p-6
-                  ${!isLastRowMd ? 'md:border-b md:border-brand-blue/10 md:dark:border-brand-green/10' : ''}
-                  ${!isLastColMd ? 'md:border-r md:border-brand-blue/10 md:dark:border-brand-green/10' : ''}
-                  ${!isLastItemMobile ? 'border-b md:border-b-0 border-brand-blue/10 dark:border-brand-green/10' : ''}
-                `}
-              >
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-                  {feature.title}
-                </h3>
-                <p className="text-zinc-600 dark:text-zinc-400">
-                  {feature.description}
-                </p>
-              </div>
-            );
-          })}
+              `}>
+              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                {feature.title}
+              </h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400"> {/* Applied text-sm for consistency */}
+                {feature.description}
+              </p>
+            </div>)}
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
 export default Features;

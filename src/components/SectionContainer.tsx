@@ -26,7 +26,10 @@ const SectionContainer = ({
   const backgroundClasses = withBackground ? 'bg-zinc-50/50 border-y border-zinc-100' : '';
   
   return (
-    <section id={id} className={`relative ${backgroundClasses} ${className}`}>
+    <section 
+      id={id} 
+      className={`relative ${backgroundClasses} ${className} overflow-x-hidden`} // Added overflow-x-hidden
+    >
       <div className={`max-w-full ${!fullBleed ? `max-w-[1200px] mx-auto ${paddingClasses}` : ''} relative`}>
         {withVerticalSeparator && (
           <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 hidden md:block">

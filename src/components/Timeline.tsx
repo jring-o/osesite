@@ -1,36 +1,16 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { CalendarDays, Circle } from "lucide-react";
 
-interface MilestoneColumnProps {
+interface MilestoneProps {
   quarter: string;
   description: string;
-  details: string[];
-  isLast?: boolean;
 }
 
-const MilestoneColumn = ({ quarter, description, details, isLast = false }: MilestoneColumnProps) => {
+const Milestone = ({ quarter, description }: MilestoneProps) => {
   return (
-    <div className="flex flex-col items-center bg-card/5 dark:bg-card/30 p-6 rounded-xl border border-muted/30 shadow-sm hover:shadow-md transition-all h-full">
-      <div className="flex items-center justify-center mb-4">
-        <div className="h-12 w-12 rounded-full bg-brand-blue flex items-center justify-center text-white">
-          <CalendarDays size={22} />
-        </div>
-      </div>
-      <div className="text-center">
-        <div className="font-bold text-brand-blue text-xl mb-3">{quarter}</div>
-        <div className="text-muted-foreground mb-4">{description}</div>
-        
-        <ul className="text-left text-sm space-y-2">
-          {details.map((detail, i) => (
-            <li key={i} className="flex items-start">
-              <Circle className="h-2 w-2 mt-1.5 mr-2 text-brand-blue flex-shrink-0" />
-              <span>{detail}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      
+    <div className="p-3"> {/* Removed px-3, using grid gap instead */}
+      <h4 className="font-bold text-brand-blue text-lg md:text-xl mb-2">{quarter}</h4>
+      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
     </div>
   );
 };
@@ -43,64 +23,36 @@ const Timeline = ({ className }: TimelineProps) => {
   const milestones = [
     {
       quarter: "Q1 2025",
-      description: "Begin",
-      details: [
-        "Complete legal documents",
-        "Secure initial commitments",
-        "Establish governance structure"
-      ]
+      description: "Legal setup & initial seed funding.",
     },
     {
       quarter: "Q2 2025",
-      description: "Community and Coin",
-      details: [
-        "Appoint portfolio managers",
-        "Launch Members Club",
-        "Launch website"
-      ]
+      description: "Launch Member Club & website. Appoint investment managers.",
     },
     {
       quarter: "Q3 2025",
-      description: "Model Development",
-      details: [
-        "Soft launch OSE",
-        "Begin development of OSE Distribution Model v1.0", 
-        "Prepare MVP funding round"
-      ]
+      description: "Co-develop v1.0 distribution model. Prepare MVP funding.",
     },
     {
       quarter: "Q4 2025",
-      description: "501(c)3 status expected",
-      details: [
-        "Public launch",
-        "'1k for 10k' fundraising drive",
-        "Finalize OSE Distribution Model v1.0 "
-      ]
+      description: "Target 501(c)(3) status. Public launch & fundraising.",
     },
     {
       quarter: "Q1 2026",
-      description: "First Distribution",
-      details: [
-        "Vote on OSE Distribution Model v1.0",
-        "MVP distribution",
-        "Assess and refine 2026 Goals"
-      ]
+      description: "Vote on model. Execute MVP distribution. Assess & refine.",
     }
   ];
 
   return (
-    <div className={cn("py-16 px-4 relative", className)}> {/* This py-16 is why parent SectionContainer needs paddingBottom */}
-      <h3 className="text-center mb-12 text-2xl font-bold">Roadmap</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 gap-y-10 max-w-6xl mx-auto relative">
+    <div className={cn("pt-16 pb-10 px-4 relative", className)}>
+      <h3 className="text-center mb-12 text-2xl md:text-3xl font-bold">Roadmap</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8 max-w-6xl mx-auto"> {/* Responsive grid layout */}
         {milestones.map((milestone, i) => (
-          <div key={i} className="relative">
-            <MilestoneColumn 
-              quarter={milestone.quarter}
-              description={milestone.description}
-              details={milestone.details}
-              isLast={i === milestones.length - 1}
-            />
-          </div>
+          <Milestone 
+            key={i}
+            quarter={milestone.quarter}
+            description={milestone.description}
+          />
         ))}
       </div>
     </div>
